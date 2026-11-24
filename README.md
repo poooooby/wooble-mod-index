@@ -51,8 +51,8 @@ keeps it up to date from then on.
 - `.github/workflows/pages.yml` builds and publishes to GitHub Pages on every push and nightly.
 - **Thumbnails:** drop a picture in `site/thumbs/` named after the mod's id (`national_dex_gen3.png`,
   `max_raids.jpg`; PNG or JPG, 2 MB at most) and push. It wins over the row's `thumbnail`. The
-  launcher shows it in a small square, fitted without cropping, so square pictures read best
-  (256x256 is plenty).
+  launcher shows it in a small square in the list and larger on the mod's page, fitted without cropping, so square pictures read best
+  (512x512).
 - To add a mod, add its row to `mods.json` and push. No row changes for new versions.
 
 </details>
