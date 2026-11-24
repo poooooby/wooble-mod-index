@@ -21,7 +21,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const token = process.env.GITHUB_TOKEN || '';
-const AUTHOR = 'poooooby';
+const OWNER = 'poooooby'; // the GitHub account: keys the feed's folder ids
+const AUTHOR = 'Wooble';  // the name players see
 const CATEGORIES = ['GAMEPLAY', 'CONTENT', 'BALANCE', 'ART', 'AUDIO', 'UI', 'QOL', 'TRANSLATION',
   'TOTAL_CONVERSION', 'LIBRARY', 'TOOL', 'OTHER'];
 
@@ -91,7 +92,7 @@ for (const m of listed) {
     throw new Error(`mods.json: ${m.id || '?'} needs id, title, github and known categories (${bad.join(', ')})`);
   }
   const entry = {
-    folder: `${AUTHOR}@${m.id}`,
+    folder: `${OWNER}@${m.id}`,
     id: m.id,
     title: m.title,
     author: m.author || AUTHOR,

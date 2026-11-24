@@ -44,7 +44,7 @@ keeps it up to date from then on.
 - `mods.json` lists each mod: `id` (its manifest id), `title`, `github` (`owner/repo`), `summary`,
   1-4 `categories` (GAMEPLAY, CONTENT, BALANCE, ART, AUDIO, UI, QOL, TRANSLATION,
   TOTAL_CONVERSION, LIBRARY, TOOL, OTHER), `tags`, and optionally `license`, `thumbnail` (a path in
-  the mod's repo, or a full URL), `description` (default `README.md`) and `author` (default poooooby).
+  the mod's repo, or a full URL), `description` (default `README.md`) and `author` (default Wooble).
 - `scripts/build.mjs` reads each mod's `manifest.json` and newest stable release with a `.zip`, and
   writes `site/data/index.json` (the launcher's feed, schema version 1). Run it with
   `GITHUB_TOKEN=$(gh auth token) node scripts/build.mjs`.
