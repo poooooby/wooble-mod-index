@@ -15,7 +15,7 @@
 // A mod that can't be read is still listed, with update_check "error: ..." (the launcher
 // shows it as not installable); the build fails only when no mod could be read at all.
 
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -69,6 +69,19 @@ function raw(repo, path) {
   return `https://raw.githubusercontent.com/${repo}/HEAD/${path.replace(/^\//, '')}`;
 }
 
+// A picture in site/thumbs/<id>.png (or .jpg) wins over mods.json's thumbnail. It ships with the
+// Pages site, so the feed names it relative to the site root, which the launcher resolves itself.
+const THUMB_MAX = 2 * 1024 * 1024;
+function localThumb(id) {
+  for (const ext of ['png', 'jpg', 'jpeg']) {
+    const file = join(root, 'site', 'thumbs', `${id}.${ext}`);
+    if (!existsSync(file)) continue;
+    if (statSync(file).size > THUMB_MAX) throw new Error(`site/thumbs/${id}.${ext} is over 2 MB`);
+    return `thumbs/${id}.${ext}`;
+  }
+  return null;
+}
+
 const listed = JSON.parse(readFileSync(join(root, 'mods.json'), 'utf8'));
 const mods = [];
 let readable = 0;
@@ -88,7 +101,7 @@ for (const m of listed) {
     repo: `https://github.com/${m.github}`,
     github: m.github,
     license: m.license,
-    thumbnail: raw(m.github, m.thumbnail),
+    thumbnail: localThumb(m.id) || raw(m.github, m.thumbnail),
     description_url: raw(m.github, m.description || 'README.md'),
     update_check: 'pending',
   };

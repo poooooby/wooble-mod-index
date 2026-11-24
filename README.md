@@ -49,6 +49,10 @@ keeps it up to date from then on.
   writes `site/data/index.json` (the launcher's feed, schema version 1). Run it with
   `GITHUB_TOKEN=$(gh auth token) node scripts/build.mjs`.
 - `.github/workflows/pages.yml` builds and publishes to GitHub Pages on every push and nightly.
+- **Thumbnails:** drop a picture in `site/thumbs/` named after the mod's id (`national_dex_gen3.png`,
+  `max_raids.jpg`; PNG or JPG, 2 MB at most) and push. It wins over the row's `thumbnail`. The
+  launcher shows it in a small square, fitted without cropping, so square pictures read best
+  (256x256 is plenty).
 - To add a mod, add its row to `mods.json` and push. No row changes for new versions.
 
 </details>
