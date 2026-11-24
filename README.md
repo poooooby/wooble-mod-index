@@ -10,6 +10,7 @@ mods below show up in the launcher, ready to install, alongside the main index.
 1. Open the launcher's **Find mods** tab.
 2. Press **Add index**.
 3. Paste **`poooooby/wooble-mod-index`** and confirm.
+4. Search `Wooble` to find all mods.
 
 The mods appear in the list with the rest. Install one with a tap, and the launcher's MODS panel
 keeps it up to date from then on.
