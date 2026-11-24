@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wooble Mod Index</title>
+<style>
+  :root { --bg: #f6f5f2; --card: #ffffff; --ink: #1d1c1a; --muted: #6b6862; --line: #e3e0da; --accent: #c2410c; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161513; --card: #201f1c; --ink: #ecebe7; --muted: #a29f98; --line: #34322e; --accent: #fb923c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1 { margin: 0 0 4px; font-size: 28px; }
+  .pitch { margin: 0 0 24px; color: var(--muted); }
+  .add { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 24px; }
+  .add ol { margin: 8px 0 0; padding-left: 20px; }
+  code { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 14px; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  .mod { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+  .mod img { width: 100%; height: 120px; object-fit: cover; background: var(--line); display: block; }
+  .mod .ph { height: 120px; background: var(--line); display: grid; place-items: center; color: var(--muted); font-weight: 600; }
+  .mod div.body { padding: 12px 14px 14px; }
+  .mod h2 { margin: 0; font-size: 17px; }
+  .mod h2 a { color: inherit; text-decoration: none; }
+  .mod h2 a:hover { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; margin: 2px 0 6px; }
+  .mod p { margin: 0; font-size: 14px; }
+  .note { color: var(--muted); font-size: 13px; margin-top: 24px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Wooble Mod Index</h1>
+  <p class="pitch">Every Wooble mod, ready to install from the Gen1Recomp launcher.</p>
+  <section class="add">
+    <strong>Add it to the launcher</strong>
+    <ol>
+      <li>Open the <b>Find mods</b> tab and press <b>Add index</b>.</li>
+      <li>Paste <code>poooooby/wooble-mod-index</code> and confirm.</li>
+    </ol>
+  </section>
+  <section class="grid" id="mods" aria-live="polite"></section>
+  <p class="note" id="note"></p>
+</main>
+<script>
+  const games = { all: "Every game", gen1: "Red, Blue, Yellow", gen2: "Gold, Silver, Crystal", gen3: "FireRed to Emerald" };
+  function el(tag, attrs, text) {
+    const n = document.createElement(tag);
+    for (const k in attrs || {}) n.setAttribute(k, attrs[k]);
+    if (text) n.textContent = text;
+    return n;
+  }
+  fetch("data/index.json", { cache: "no-store" })
+    .then((r) => r.json())
+    .then((index) => {
+      const grid = document.getElementById("mods");
+      for (const m of index.mods) {
+        const card = el("article", { class: "mod" });
+        if (m.thumbnail) {
+          const img = el("img", { src: m.thumbnail, alt: "", loading: "lazy" });
+          img.onerror = () => img.replaceWith(el("div", { class: "ph" }, m.title));
+          card.append(img);
+        } else card.append(el("div", { class: "ph" }, m.title));
+        const body = el("div", { class: "body" });
+        const h = el("h2"); h.append(el("a", { href: m.repo }, m.title)); body.append(h);
+        const version = m.latest ? m.latest.version : m.version;
+        body.append(el("div", { class: "meta" },
+          [version && "v" + version, (m.games || []).map((g) => games[g] || g).join(" · ")].filter(Boolean).join(" — ")));
+        body.append(el("p", {}, m.summary || ""));
+        card.append(body);
+        grid.append(card);
+      }
+      document.getElementById("note").textContent =
+        index.mods.length + " mods · updated " + new Date(index.generated_at).toLocaleString();
+    })
+    .catch(() => { document.getElementById("note").textContent = "The list could not be loaded."; });
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+[
+  {
+    "id": "national_dex_gen3",
+    "title": "WoobleDex",
+    "github": "poooooby/national_dex_gen3",
+    "summary": "All 1025 Pokémon in every game, Red to Emerald, with today's moves, abilities, items and the Fairy type.",
+    "categories": ["CONTENT", "GAMEPLAY"],
+    "tags": ["national dex", "1025", "fairy type", "new moves", "new abilities", "gen 1", "gen 2", "gen 3"],
+    "license": "MIT",
+    "thumbnail": "docs/images/vending/machines.png"
+  },
+  {
+    "id": "g9-battle-sprites-gen3",
+    "title": "WoobleSpritePack",
+    "github": "poooooby/g9-battle-sprites-gen3",
+    "summary": "Animated, true-colour sprites for all 1025 Pokémon, from Red to Emerald.",
+    "categories": ["ART"],
+    "tags": ["sprites", "animated", "1025", "gen 1", "gen 2", "gen 3"]
+  },
+  {
+    "id": "modern_spawns",
+    "title": "WoobleSpawns",
+    "github": "poooooby/g1r_modern_spawns",
+    "summary": "Every route, cave and lake in Kanto, Johto and Hoenn gets fresh Pokémon from Generations 1 to 9, picked to fit the place.",
+    "categories": ["GAMEPLAY", "CONTENT"],
+    "tags": ["wild pokemon", "spawns", "trainers", "shiny", "gen 1", "gen 2", "gen 3"]
+  },
+  {
+    "id": "gen3-hd-sprites",
+    "title": "WoobleView",
+    "github": "poooooby/gen3-hd-sprites",
+    "summary": "Sharp Pokémon, battles that fit any screen, and battles set in a 3D world.",
+    "categories": ["ART", "UI"],
+    "tags": ["hd", "widescreen", "3d battles", "library", "gen 3"],
+    "thumbnail": "docs/battle-3d.png"
+  },
+  {
+    "id": "wilds_of_hoenn",
+    "title": "Vivid Worlds",
+    "github": "poooooby/wilds-of-hoenn",
+    "summary": "Wild Pokémon roam the overworld of Ruby, Sapphire, Emerald, FireRed and LeafGreen. Walk up to one to battle it, and bring a partner along. Formerly Wilds of Hoenn.",
+    "categories": ["GAMEPLAY", "ART"],
+    "tags": ["overworld pokemon", "followers", "gen 3"],
+    "license": "MIT",
+    "thumbnail": "imgs/vividworlds.png"
+  },
+  {
+    "id": "vivid_worlds_og",
+    "title": "Vivid Worlds: OG",
+    "github": "poooooby/vivid-worlds-og",
+    "summary": "Wild Pokémon roam the overworld of Red, Blue, Yellow, Gold, Silver and Crystal, and a partner Pokémon walks with you, battles at your side and digs up treasure.",
+    "categories": ["GAMEPLAY", "ART"],
+    "tags": ["overworld pokemon", "followers", "gen 1", "gen 2"],
+    "license": "MIT",
+    "thumbnail": "imgs/VWOG%20Logo.png"
+  },
+  {
+    "id": "woob_os",
+    "title": "WoobOS",
+    "github": "poooooby/woob_os",
+    "summary": "The PC as a modern desktop. Boot it up, tap an app, and get on with your Pokémon.",
+    "categories": ["UI", "QOL"],
+    "tags": ["pc", "boxes", "touch", "gen 1", "gen 2", "gen 3"],
+    "license": "MIT",
+    "thumbnail": "docs/screenshots/boxes.png"
+  },
+  {
+    "id": "max_raids",
+    "title": "Galar Rising",
+    "github": "poooooby/max-raids",
+    "summary": "Sword and Shield's Max Raid Battles in Ruby, Sapphire, Emerald, FireRed and LeafGreen.",
+    "categories": ["GAMEPLAY", "CONTENT"],
+    "tags": ["dynamax", "max raids", "gigantamax", "gen 3"],
+    "thumbnail": "assets/Galarrising.png"
+  },
+  {
+    "id": "play_nav",
+    "title": "NaviPlay",
+    "github": "poooooby/PlayNav",
+    "summary": "A second screen for your Pokémon. Pet them, feed them, play games with them and train them, on a DS-style touch screen.",
+    "categories": ["GAMEPLAY", "UI"],
+    "tags": ["second screen", "touch", "pets", "minigames", "gen 1", "gen 2", "gen 3"],
+    "license": "MIT",
+    "thumbnail": "imgs/npbanner.png"
+  },
+  {
+    "id": "TERRARIUM",
+    "title": "Terrarium2",
+    "github": "poooooby/Terrarium",
+    "summary": "Kanto as a little world under glass: the Red, Blue and Yellow overworld as a living 3D diorama, with its own weather, its own hours and things living in it.",
+    "categories": ["ART", "GAMEPLAY"],
+    "tags": ["3d", "voxel", "diorama", "weather", "gen 1"]
+  },
+  {
+    "id": "cleaner_mod_options",
+    "title": "Cleaner Mod Options",
+    "github": "poooooby/cleaner-mod-options",
+    "summary": "A tidier mod list. Hide disabled mods and mods for other games from the in-game mod menu.",
+    "categories": ["UI", "QOL"],
+    "tags": ["mod menu", "options", "gen 1", "gen 2", "gen 3"],
+    "license": "MIT"
+  }
+]
